@@ -1,0 +1,11 @@
+name: comment-on-pr
+on: [pull_request]
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: unsplash/comment-on-pr@v1.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "Check out this message!"
