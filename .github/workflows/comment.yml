@@ -1,4 +1,4 @@
-name: add a comment to PRs when dependencies manifest files are updated 
+name: PR comment
 on: [pull_request]
 
 jobs:
