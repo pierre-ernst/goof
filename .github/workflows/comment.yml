@@ -5,8 +5,7 @@ jobs:
   comment-on-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: pierre-ernst/actions-comment-pull-request@master
+      - uses: thollander/actions-comment-pull-request@master
         with:
-          # file-match: '["package\.json"]'
-          message: '$file on $owner/$repo has changed'
-          # ghToken: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Sample message -> ${{ github.event.changes }}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
