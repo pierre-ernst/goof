@@ -1,11 +1,12 @@
-name: comment-on-pr
+name: add a comment to PRs when dependencies manifest files are updated 
 on: [pull_request]
+
 jobs:
-  comment:
+  comment-on-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: unsplash/comment-on-pr@v1.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: pierre-ernst/actions-comment-pull-request@master
         with:
-          msg: "Check out this message!"
+          # file-match: '["package\.json"]'
+          message: '$file on $owner/$repo has changed'
+          # ghToken: ${{ secrets.GITHUB_TOKEN }}
