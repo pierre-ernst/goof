@@ -1,2 +1,1 @@
-manifest:
-  - **/package.json
+manifest: ./**/package.json
