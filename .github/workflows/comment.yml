@@ -7,5 +7,5 @@ jobs:
     steps:
       - uses: thollander/actions-comment-pull-request@master
         with:
-          message: ${{ format('-> {0} %%% {1}', github.event.changes, github.repository) }}
+          message: ${{ format('-> {0} %%% {1}', github.event, github.repository) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
