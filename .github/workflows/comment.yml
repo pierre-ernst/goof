@@ -5,7 +5,8 @@ jobs:
   comment-on-pr:
     runs-on: ubuntu-latest
     steps:
-      - uses: thollander/actions-comment-pull-request@master
-        with:
-          message: ${{ format('-> {0} / {1} / {2} / {3}', github.event.repository.owner.login, github.event.repository.name, github.event.after, github.event.pull_request.number) }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: pierre-ernst/actions-comment-pull-request@master
+        with: 
+          file-match: "^((?:[^/]*/)*)(yarn\\.lock|package-lock\\.json|package\\.json|Gemfile|Gemfile\\.lock|pom\\.xml|build\\.gradle|build\\.gradle.kts|build\\.sbt|Pipfile|requirements\\.txt|Gopkg\\.lock|go\\.mod|vendor\\.json|project\\.assets.json|packages\\.config|paket\\.dependencies|composer\\.lock|Podfile|Podfile\\.lock)$"
+          message: "![Snyk logo](https://snyk.io/favicon.ico) To detect dependencies with known vulnerabilities, you can trigger a Snyk scan with the following command:\n```\n$ cd $dir\n$ snyk monitor | node ~/Developer/snyk-github-issue-creator/cli/index.js --stdin --ghOwner=$owner --ghRepo=$repo --projectName=$file --autoGenerate\n```"
+          ghToken: ${{ secrets.GITHUB_TOKEN }}
