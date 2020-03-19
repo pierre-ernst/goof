@@ -8,5 +8,5 @@ jobs:
       - uses: pierre-ernst/actions-comment-pull-request@v1.0
         with: 
           file-match: "^((?:[^/]*/)*)(yarn\\.lock|package-lock\\.json|package\\.json|Gemfile|Gemfile\\.lock|pom\\.xml|build\\.gradle|build\\.gradle.kts|build\\.sbt|Pipfile|requirements\\.txt|Gopkg\\.lock|go\\.mod|vendor\\.json|project\\.assets.json|packages\\.config|paket\\.dependencies|composer\\.lock|Podfile|Podfile\\.lock)$"
-          message: "![Snyk logo](https://snyk.io/favicon.ico) To detect dependencies with known vulnerabilities, you can trigger a Snyk scan with the following command:\n```\n$ cd $dir\n$ snyk monitor | node ~/Developer/snyk-github-issue-creator/cli/index.js --stdin --ghOwner=$owner --ghRepo=$repo --projectName=$file --autoGenerate\n```"
+          message: "![Snyk logo](https://snyk.io/favicon.ico) To detect dependencies with known vulnerabilities, you can trigger a Snyk scan with the following command:\n```\n$ cd $dir\n$ snyk monitor | snyk-github-issue-creator --stdin --ghOwner=$owner --ghRepo=private-test-repo --projectName=$repo/$file --autoGenerate\n```"
           ghToken: ${{ secrets.GITHUB_TOKEN }}
